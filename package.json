@@ -1,5 +1,5 @@
 {
-  "name": "awesome-atlas",
+  "name": "awesome-imlooke",
   "version": "1.0.0",
   "description": "A neat and beautiful Ghost theme by imlooke. Base on Bootstrap-4",
   "engines": {
@@ -7,11 +7,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imlooke/awesome-atlas.git"
+    "url": "git+https://github.com/imlooke/awesome-imlooke.git"
   },
   "keywords": [
     "ghost",
-    "atlas"
+    "imlooke"
   ],
   "author": {
     "name": "imlooke",
@@ -19,9 +19,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/imlooke/awesome-atlas/issues"
+    "url": "https://github.com/imlooke/awesome-imlooke/issues"
   },
-  "homepage": "https://github.com/imlooke/awesome-atlas#readme",
+  "homepage": "https://github.com/imlooke/awesome-imlooke#readme",
   "config": {
     "posts_per_page": 9
   },
