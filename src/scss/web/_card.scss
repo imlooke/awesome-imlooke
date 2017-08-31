@@ -1,6 +1,7 @@
 /* Post Card */
 // ============
 .card-col {
+    flex: 1 1 300px;
     padding: 0 $spacer $spacer *2;
 
     @include media-breakpoint-down(sm) {

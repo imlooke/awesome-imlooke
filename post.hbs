@@ -2,16 +2,9 @@
 
 {{#post}}
 
-{{!-- Post Feature Image  --}}
-<main class="container-fluid" role="main">
-    <div class="row">
-        <div class="post-feature-image col-12{{#unless feature_image}} no-image{{/unless}}" {{#if feature_image}}style="background-image: url({{feature_image}})"{{/if}}></div>
-    </div>
-</main>
-
 {{!-- Content  --}}
 <main class="post-container container" role="main">
-    <div class="row no-gutters justify-content-center bg-white border{{#unless feature_image}} no-image{{/unless}}">
+    <div class="row no-gutters justify-content-center bg-white border">
         <article class="post-content col-md-9 {{post_class}}">
             {{!-- post header --}}
             <header class="post-full-header">
@@ -26,6 +19,10 @@
 
             {{!-- post content --}}
             <section class="post-full-content">
+                {{!-- Post Feature Image  --}}
+                {{#if feature_image}}
+                    <img class="post-feature-image" src="{{img_url feature_image absolute="true"}}">
+                {{/if}}
                 {{content}}
             </section>
 
@@ -65,24 +62,19 @@
 </main>
 
 {{!-- next and previous --}}
-<footer class="container post-footer">
-    <div class="pagination row">
-        <div class="col-6">
-            {{#next_post}}
-                <a class="link-box" href="{{url}}">
-                    <span class="next-subtitle">上一篇</span>
-                    <span class="next-title">{{title}}</span>
-                </a>
-            {{/next_post}}
-        </div>
-        <div class="col-6 text-right">
-            {{#prev_post}}
-                <a class="link-box" href="{{url}}">
-                    <span class="previous-subtitle">下一篇</span>
-                    <span class="previous-title">{{title}}</span>
-                </a>
-            {{/prev_post}}
-        </div>
+<footer class="container pagination">
+    <div class="row">
+        {{!-- <div class="card-col {{post_class}}">
+            <div class="card">
+            </div>
+        </div> --}}
+        {{#next_post}}
+            {{> "post-card"}}
+        {{/next_post}}
+        
+        {{#prev_post}}
+            {{> "post-card"}}
+        {{/prev_post}}
     </div>
 </footer>
 

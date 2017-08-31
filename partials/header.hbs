@@ -8,16 +8,17 @@
 
         {{#if @blog.logo}}
             <a class="navbar-brand d-none d-md-none d-lg-block" href="{{@blog.url}}">
-                <img src="{{img_url @blog.logo absolute="true"}}" width="32" />
+                <img src="{{img_url @blog.logo absolute="true"}}" height="32" />
             </a>
-            <div class="navbar-highlight d-none d-md-none d-lg-block"></div>
+        {{else}}
+            <a class="navbar-brand d-none d-md-none d-lg-block" href="{{@blog.url}}">
+                {{@blog.title}}
+            </a>
         {{/if}}
         
-        <a class="navbar-brand" href="{{@blog.url}}">
-            {{@blog.title}}
-        </a>
-        
-        <button class="btn btn-outline-primary btn-sm navbar-subscribe" id="subscribeOpen">Subscribe</button>
+        {{#if @labs.subscribers}}
+            <button class="btn btn-outline-primary btn-sm navbar-subscribe" id="subscribeOpen">Subscribe</button>
+        {{/if}}
     </nav>
 
     {{!-- Navigation --}}

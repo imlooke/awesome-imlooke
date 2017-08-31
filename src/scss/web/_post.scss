@@ -2,22 +2,15 @@
 // Post Feature Image
 // ======================================================
 .post-feature-image {
-    position: relative;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
-    
-    &:not(.no-image) {
-        height: 750px;
-
-        @include media-breakpoint-down(md) {
-            height: 450px;
-        }
-
-        @include media-breakpoint-down(sm) {
-            height: 350px;
-        }
+    margin-bottom: $spacer*3 !important;
+    @include media-breakpoint-down(sm) {
+        margin-bottom: $spacer !important;
+        margin-left: -$spacer !important;
+        margin-right: -$spacer !important;
     }
+    // background-repeat: no-repeat;
+    // background-position: top;
+    // background-size: cover;
 }
 
 // Post Content
@@ -27,10 +20,6 @@
     margin-top: $spacer*2;
     
     .row {
-        &:not(.no-image) {
-            margin-top: -38%;
-        }
-        
         @include media-breakpoint-down(sm) {
             border: none !important;
             background: $gray-100 !important;
@@ -90,13 +79,14 @@
 // ======================================================
 .post-full-content {
     position: relative;
-    margin: 0;
-    width: 100%;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    width: 100%;
     padding: 0;
     font-size: $font-size-base;
     line-height: $line-height-base;
+    color: $gray-900;
 
     @include media-breakpoint-down(sm) {
         font-size: $font-size-base;
@@ -297,61 +287,6 @@
 // 
 // Pagination
 // ======================================================
-.post-footer {
-    width: 100%;
-}
-
 .pagination {
-    padding: $spacer*4 0;
-    margin: $spacer*2 0 $spacer;
-    border-radius: 5px;
-    box-shadow: 0 0 8px rgba(0,0,0,.2);
-    background-color: $gray-300;
-
-    @include media-breakpoint-down(sm) {
-        padding: $spacer * 2 0;
-    }
-
-    & .link-box {
-        position: relative;
-        color: $gray-700;
-
-        & .next-subtitle,
-        & .previous-subtitle {
-            font-weight: bold;
-            font-size: 1rem;
-            display: block;
-            width: 100%;
-        }
-
-        & .next-title,
-        & .previous-title {
-            font-size: 1rem;
-            width: 60%;
-            display: inline-block;
-            @include media-breakpoint-down(sm) {
-                width: 100%;
-            }
-        }
-
-        & .next-subtitle {
-            padding: 0 $spacer / 2 $spacer / 2 0;
-        }
-
-        & .previous-subtitle {
-            padding: 0 0 $spacer / 2 $spacer / 2;
-        }
-
-        & .next-title {
-            padding-right: $spacer / 2;
-        }
-
-        & .previous-title {
-            padding-left: $spacer / 2;
-        }
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
+    margin-top: $spacer*2;
 }
