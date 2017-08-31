@@ -1,0 +1,46 @@
+// Tags
+// =====================================================
+.tags-full {
+    padding: $spacer*6 12.5%;
+    @include media-breakpoint-down(sm) {
+        padding: $spacer*2 $spacer;
+    }
+
+    .tags-full-header {
+        text-align: center;
+        h1 {
+            font-weight: bold;
+        }
+    }
+
+    .tags-full-content {
+        margin-top: $spacer*6;
+        @include media-breakpoint-down(sm) {
+            margin-top: $spacer*2;
+        }
+
+        .tag-badge {
+            display: inline-block;
+            vertical-align: middle; 
+            padding: $spacer/2 $spacer;
+            margin: 0 $spacer/2 $spacer/2 0;
+            color: $black;
+            border: 1px solid $gray-200;
+            transition: all .15s ease-in-out;
+
+            &:hover{
+                text-decoration: none;
+                color: $white;
+                border: 1px solid theme-color("primary");
+                background-color: theme-color("primary");
+            }
+
+            .num {
+                color: $black;
+                background-color: $gray-200;
+                padding: 0 $spacer/2;
+                margin-left: $spacer;
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+// Error Page
+// =====================================================
+.error-page {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(33, 37, 41, .83);
+
+        header {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+}
+
+.error-message {
+    text-align: center;
+    .error-code {
+        font-size: 192px;
+        color: $white;
+        margin-top: 0;
+        margin-bottom: $spacer/2;
+    }
+
+    .error-description {
+        font-size: $font-size-lg;
+        color: $gray-200;
+    }
+
+    .btn {
+        border-radius: 25px;
+        padding-left: $spacer*2;
+        padding-right: $spacer*2;
+    }
+}

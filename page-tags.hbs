@@ -1,0 +1,40 @@
+{{!< default}}
+
+{{#post}}
+
+{{!-- Content  --}}
+<main class="layout-content" role="main">
+    <div class="container">
+        
+        <div class="col-12 p-0 bg-white border">
+            <article class="tags-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+
+                <header class="tags-full-header">
+                    <h1 class="tags-full-title">{{title}}</h1>
+                </header>
+
+                <section class="tags-full-content">
+                    {{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
+                        {{#foreach tags}}
+                            <a href="/tag/{{slug}}" class="tag-badge">{{name}}<span class="num">{{count.posts}}</span></a>
+                        {{/foreach}}
+                    {{/get}}
+                </section>
+
+            </article>
+        </div>
+        
+    </div>
+</main>
+
+{{/post}}
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+$(function() {
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+});
+</script>
+{{/contentFor}}

@@ -1,0 +1,63 @@
+<div class="card-col col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 {{post_class}}">
+    <div class="card">
+        <div class="card-box">
+            {{#if feature_image}}
+            <a class="card-image-link" href="{{url}}">
+                <div class="card-image" style="background-image: url({{feature_image}})">
+                    <div class="card-image-wrap">
+                        <header class="card-header">
+                            {{#if tags}}
+                                <span class="card-tags">{{tags.[0].name}}</span>
+                            {{/if}}
+                            <span class="card-title">{{title}}</span>
+                        </header>
+                    </div>
+                </div>
+            </a>
+            {{/if}}
+
+            {{#unless feature_image}}
+            <a class="card-content-link" href="{{url}}">
+                {{!-- title --}}
+                <header class="card-header">
+                    {{#primary_tag}}
+                        <span class="card-tags">{{name}}</span>
+                    {{/primary_tag}}
+                    <span class="card-title">{{title}}</span>
+                </header>
+
+                {{!-- excerpt --}}
+                <section class="card-excerpt">
+                    <p>{{excerpt words="16"}}</p>
+                </section>
+                {{!-- 显示全部tag --}}
+                {{!-- {{#if tags}}
+                    <div class="post-card-sp-tags">
+                        {{#foreach tags}}
+                        <span>{{name}}</span>
+                        {{/foreach}}
+                    </div>
+                {{/if}} --}}
+            </a>
+            {{/unless}}
+
+            <footer class="card-meta">
+                {{#if author.profile_image}}
+                    <img class="card-author-image" src="{{author.profile_image}}" alt="{{author.name}}" />
+                {{/if}}
+                <span class="card-author-name">{{author}}</span>
+                <span class="card-published-time">
+                    <time class="published-at" datetime="{{date published_at format="YYYY-MM-DDTHH:mm:ss.SS\Z"}}"></time>
+                </span>
+            </footer>
+        </div>
+        {{!-- {{#author}}
+        {{#if profile_image}}
+        <a class="post-card-sp-author-image" href="{{url absolute="true"}}">
+            <img src="{{img_url profile_image absolute="true"}}" width="72" style="border-radius: 5px;" />
+            <span>{{name}}</span>
+        </a>
+        {{/if}}
+        {{/author}} --}}
+    </div>
+</div>

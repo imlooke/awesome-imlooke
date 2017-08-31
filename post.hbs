@@ -1,0 +1,107 @@
+{{!< default}}
+
+{{#post}}
+
+{{!-- Post Feature Image  --}}
+<main class="container-fluid" role="main">
+    <div class="row">
+        <div class="post-feature-image col-12{{#unless feature_image}} no-image{{/unless}}" {{#if feature_image}}style="background-image: url({{feature_image}})"{{/if}}></div>
+    </div>
+</main>
+
+{{!-- Content  --}}
+<main class="post-container container" role="main">
+    <div class="row no-gutters justify-content-center bg-white border{{#unless feature_image}} no-image{{/unless}}">
+        <article class="post-content col-md-9 {{post_class}}">
+            {{!-- post header --}}
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMMM YYYY"}}</time>
+                    {{#if tags}}
+                        <span class="date-divider">/</span> <a href="{{@blog.url}}/tag/{{tags.[0].slug}}">{{tags.[0].name}}</a>
+                    {{/if}}
+                </section>
+                <h2 class="post-full-title">{{title}}</h2>
+            </header>
+
+            {{!-- post content --}}
+            <section class="post-full-content">
+                {{content}}
+            </section>
+
+            {{!-- Email Subscribe --}}
+            {{!-- {{#if @labs.subscribers}}
+            <section class="subscribe-content">
+                <div class="subscribe-form bg-light text-center border">
+                    <h1>订阅 {{@blog.title}}</h1>
+                    <p>如果有新的文章，将通知到这个邮箱。</p>
+                    {{subscribe_form placeholder="email@example.com" input_class="form-control form-control-lg col-md-5" button_class="btn btn-primary btn-lg col-md-5"}}
+                </div>
+            </section>
+            {{/if}} --}}
+
+            {{!-- Author profile --}}
+            <footer class="post-full-footer d-flex justify-content-between align-items-center">
+                {{#author}}
+                <section class="author-card d-flex align-items-center">
+                    {{#if profile_image}}
+                        <img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" />
+                    {{/if}}
+                    <section class="author-card-content">
+                        <h4 class="author-card-name"><a href="{{url}}">{{name}}</a></h4>
+                        {{#if bio}}
+                            <p>{{bio}}</p>
+                        {{else}}
+                            <p>查看作者的更多<a href="{{url}}">文章</a></p>
+                        {{/if}}
+                    </section>
+                </section>
+                
+                <a class="btn btn-outline-primary" href="{{url}}">阅读更多</a>
+                {{/author}}
+            </footer>
+        </article>
+    </div>
+</main>
+
+{{!-- next and previous --}}
+<footer class="container post-footer">
+    <div class="pagination row">
+        <div class="col-6">
+            {{#next_post}}
+                <a class="link-box" href="{{url}}">
+                    <span class="next-subtitle">上一篇</span>
+                    <span class="next-title">{{title}}</span>
+                </a>
+            {{/next_post}}
+        </div>
+        <div class="col-6 text-right">
+            {{#prev_post}}
+                <a class="link-box" href="{{url}}">
+                    <span class="previous-subtitle">下一篇</span>
+                    <span class="previous-title">{{title}}</span>
+                </a>
+            {{/prev_post}}
+        </div>
+    </div>
+</footer>
+
+{{/post}}
+
+{{#contentFor "scripts"}}
+<script>
+    $(document).ready(function () {
+        // Start fitVids 调整视频播放器
+        var $postContent = $(".post-content");
+        $postContent.fitVids();
+        // End fitVids
+
+        // 调整时间格式
+        $('.post-full-meta-date').each(function(i, date) {
+            var $date = $(date);
+            $date.html(moment($date.attr('datetime')).calendar());
+        });
+        // 调整时间格式
+    });
+</script>
+{{/contentFor}}

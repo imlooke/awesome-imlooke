@@ -1,0 +1,36 @@
+{{!-- Header  --}}
+<header class="bg-white border border-top-0 border-right-0 border-left-0">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-default">
+
+        <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarHiddenContent" aria-controls="navbarHiddenContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="material-icons">menu</i>
+        </button>
+
+        {{#if @blog.logo}}
+            <a class="navbar-brand d-none d-md-none d-lg-block" href="{{@blog.url}}">
+                <img src="{{img_url @blog.logo absolute="true"}}" width="32" />
+            </a>
+            <div class="navbar-highlight d-none d-md-none d-lg-block"></div>
+        {{/if}}
+        
+        <a class="navbar-brand" href="{{@blog.url}}">
+            {{@blog.title}}
+        </a>
+        
+        <button class="btn btn-outline-primary btn-sm navbar-subscribe" id="subscribeOpen">Subscribe</button>
+    </nav>
+
+    {{!-- Navigation --}}
+    <div class="container d-none d-md-none d-lg-block" role="main">
+        <div class="row">
+            <div class="col-12">
+                {{navigation}}
+            </div>
+        </div>
+    </div>
+
+    {{!-- Collapse Navigation --}}
+    <div class="collapse navbar-collapse" id="navbarHiddenContent">
+        {{navigation}}
+    </div>
+</header>

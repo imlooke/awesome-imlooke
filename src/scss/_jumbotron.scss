@@ -1,0 +1,45 @@
+.jumbotron {
+  position: relative;
+  padding: $jumbotron-padding * 2 ($jumbotron-padding);
+  margin-bottom: 0;
+  background-color: $jumbotron-bg;
+  @include border-radius($border-radius-lg);
+
+  @include media-breakpoint-up(sm) {
+    padding: ($jumbotron-padding * 4.5) $jumbotron-padding;
+  }
+
+  // Custom
+  &.has-image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .wrap {
+      background: linear-gradient(rgba(0,0,0,.3) 30%,rgba(0,0,0,.8));
+    }
+
+    h1 {
+      color: $white;
+    }
+  
+    p {
+      color: $gray-200;
+    }
+  }
+
+  .wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+  }
+}
+
+.jumbotron-fluid {
+  padding-right: 0;
+  padding-left: 0;
+  @include border-radius(0);
+}

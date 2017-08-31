@@ -1,0 +1,31 @@
+@import 'source/loaders/variables';
+@import 'source/loaders/mixins';
+
+@import 'source/loaders/animations/ball-beat';
+
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .ball-beat {
+        opacity: 1;
+        transition: all .15s ease-in-out;
+
+        &.hide {
+            opacity: 0;
+            height: 0;
+        }
+        div {
+            &:first-child {
+                background-color: $pink;
+            }
+            &:nth-child(2) {
+                background-color: $blue;
+            }
+            &:last-child {
+                background-color: $yellow;
+            }
+        }
+    }
+}

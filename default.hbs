@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    
+    {{!-- Favicon  --}}
+    <link rel="shortcut icon" href="{{asset "/favicon.ico"}}">
+
+    {{!-- Custom style  --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/code/monokai-sublime.css"}}" />
+    {{!-- This tag outputes SEO meta+structured data and other important settings --}}
+    {{ghost_head}}
+</head>
+
+<body class="{{body_class}} bg-light">
+
+    {{!-- Layout --}}
+    <main class="layout d-flex flex-column">
+        {{!-- Header  --}}
+        {{> "header"}}
+
+        {{!-- layout content  --}}
+        {{{body}}}
+
+        {{!-- footer content --}}
+        {{> "footer"}}
+
+        {{!-- Subscribe content --}}
+        {{#if @labs.subscribers}}
+        <div class="subscribe-model hide" id="subscribeModel">
+            <div class="subscribe-form text-center">
+                <h1>订阅 {{@blog.title}}</h1>
+                <p>新的文章将会通知到这个邮箱。</p>
+                {{subscribe_form placeholder="email@example.com" form_class="p-0 col-sm-6 col-md-5 col-lg-4 col-xl-3" input_class="form-control form-control-lg" button_class="btn btn-primary btn-lg btn-block"}}
+            </div>
+            <button class="close" id="subscribeClose"><i class="material-icons">close</i></button>
+        </div>
+        {{/if}}
+        
+        {{!-- Back To Top & Share btn --}}
+        <div class="back-share-content{{^is "post"}} no-share{{/is}}">
+            {{!-- Share list Only Post Page --}}
+            {{#is "post"}}
+            <div class="social-share" id="socialShareContent" data-wechat-qrcode-title="请打开微信扫一扫" data-disabled="google,linkedin,qzone,diandian,tencent,douban"></div>
+            <button class="share-btn btn-info" id="shareBtn">
+                {{> "icons/share"}}
+            </button>
+            {{/is}}
+            
+            <button class="back-to-top-btn btn-dark hide" id="backToTopBtn">
+                <i class="material-icons">expand_less</i>
+            </button>
+        </div>
+    </main>
+    
+    {{!-- CDN  --}}
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+    <script src="https://cdn.bootcss.com/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdn.bootcss.com/moment.js/2.18.1/locale/zh-cn.js"></script>
+
+    {{!-- 代码高亮 & 分享 --}}
+    {{#is "post"}}
+    <script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/jquery.share.min.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    {{/is}}
+
+    {{!-- 异步加载 --}}
+    {{#if pagination.pages}}
+    <script>
+        var maxPages = parseInt('{{pagination.pages}}');
+    </script>
+    <script src="{{asset "js/infinitescroll.js"}}"></script>
+    {{/if}}
+
+    {{!-- Custom script --}}
+    <script src="{{asset "js/main.js"}}"></script>
+
+    {{!-- The #block helper --}}
+    {{{block "scripts"}}}
+
+    {{!-- Ghost outputs important scripts and data with this tag --}}
+    {{ghost_foot}} 
+</body>
+
+</html>

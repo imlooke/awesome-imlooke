@@ -1,0 +1,65 @@
+// About
+// =====================================================
+.about-me-detail-content {
+    padding: $spacer*7.5 0;
+    @include media-breakpoint-down(sm) {
+        padding: $spacer*3 0;
+    }
+}
+.about-me-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: $spacer;
+
+    .img-fluid {
+        width: 35%;
+        margin-bottom: $spacer;
+    }
+
+    .title, .content {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .title {
+        margin-bottom: $spacer/2;
+        font-size: $font-size-lg;
+        font-weight: bold;
+    }
+}
+
+.about-me-showcase {
+    padding: $spacer*7.5 0;
+    background: $gray-300;
+    box-shadow: 0 0 8px rgba(0,0,0,.2);
+    margin-bottom: 8px;
+    @include media-breakpoint-down(sm) {
+        padding: $spacer*3 0;
+    }
+    .show-card {
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+        height: 300px;
+        margin-bottom: $spacer*2;
+        position: relative;
+
+        .wrap {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, .14);
+            transition: all .2s ease-in-out;
+            display: block;
+            outline: none;
+            &:hover {
+                background: rgba(0, 0, 0, 0);
+            }
+        }
+    }
+}

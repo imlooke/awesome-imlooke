@@ -1,0 +1,61 @@
+{{!--
+400/500 errors *don't* use any JavsScript
+--}}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="{{asset "/favicon.ico"}}">
+    <link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" />
+</head>
+<body>
+    <main class="layout error-page" role="main" style="background-image: url({{asset "/images/error-bg.jpg"}})">
+        <div class="wrap">
+            <header>
+                <nav class="navbar navbar-expand-lg navbar-light navbar-default">
+                    {{#if @blog.logo}}
+                        <a class="navbar-brand" href="{{@blog.url}}">
+                            <img src="{{img_url @blog.logo absolute="true"}}" width="32" />
+                        </a>
+                        <div class="navbar-highlight"></div>
+                    {{/if}}
+                    
+                    <a class="navbar-brand text-white" href="{{@blog.url}}">
+                        {{@blog.title}}
+                    </a>
+                </nav>
+            </header>
+
+            <section class="error-message">
+                <h1 class="error-code">{{code}}</h1>
+                <p class="error-description">{{message}}.</p>
+                <a class="btn btn-primary" href="{{@blog.url}}">返回首页 →</a>
+            </section>
+        </div>
+        
+
+        {{!-- {{#if errorDetails}}
+        <section>
+            <h3>Theme errors</h3>
+            <ul>
+                {{#each errorDetails}}
+                    <li>
+                        <em>{{{rule}}}</em>
+
+                        {{#each failures}}
+                            <p><span>Ref: {{ref}}</span></p>
+                            <p><span>Message: {{message}}</span></p>
+                        {{/each}}
+                    </li>
+                {{/each}}
+            </ul>
+        </section>
+        {{/if}} --}}
+    </main>
+</body>
+</html>

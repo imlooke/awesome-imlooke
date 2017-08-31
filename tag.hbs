@@ -1,0 +1,31 @@
+{{!< default}}
+
+{{!-- Tag Cover --}}
+{{#tag}}
+<div class="jumbotron jumbotron-fluid {{#if feature_image}}has-image" style="background-image: url({{feature_image}}){{else}}no-cover{{/if}}">
+    <div class="wrap"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center pt-5 pb-5">
+                <h1 class="font-weight-bold">{{name}}</h1>
+                <p class="lead mb-2">{{description}}</p>
+                <p>共 {{plural ../pagination.total empty='暂无文章' singular='% 篇文章' plural='% 篇文章'}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{{/tag}}
+
+{{!-- Content  --}}
+<main class="layout-content" role="main">
+    <div class="container">
+        <div class="row">
+            {{#foreach posts}}
+                {{> "post-card"}}
+            {{/foreach}}
+        </div>
+
+        {{!-- ajax加载动画 --}}
+        {{> "post-loader"}}
+    </div>
+</main>

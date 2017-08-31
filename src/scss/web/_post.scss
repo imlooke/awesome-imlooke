@@ -1,0 +1,357 @@
+// 
+// Post Feature Image
+// ======================================================
+.post-feature-image {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    
+    &:not(.no-image) {
+        height: 750px;
+
+        @include media-breakpoint-down(md) {
+            height: 450px;
+        }
+
+        @include media-breakpoint-down(sm) {
+            height: 350px;
+        }
+    }
+}
+
+// Post Content
+// ======================================================
+.post-container {
+    position: relative;
+    margin-top: $spacer*2;
+    
+    .row {
+        &:not(.no-image) {
+            margin-top: -38%;
+        }
+        
+        @include media-breakpoint-down(sm) {
+            border: none !important;
+            background: $gray-100 !important;
+        }
+
+        @include media-breakpoint-down(md) {
+            margin-top: 0;
+        }
+    }
+}
+
+.post-content {
+    display: flex;
+    flex-direction: column;
+    @include media-breakpoint-down(sm) {
+        padding: 0;
+    }
+}
+
+// 
+// Post Full Header
+// ======================================================
+.post-full-header {
+    padding: $spacer * 6 0;
+    text-align: center;
+
+    & .post-full-title {
+        margin: 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+        padding: $spacer 0;
+    }
+}
+
+.post-full-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    & .post-full-meta-date {
+        color: inherit;
+    }
+
+    & .date-divider {
+        display: inline-block;
+        margin: 0 6px 1px;
+    }
+}
+
+// 
+// Post Full Content
+// ======================================================
+.post-full-content {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+
+    @include media-breakpoint-down(sm) {
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+    }
+
+    & a {
+        color: inherit;
+        box-shadow: theme-color('primary') 0 -1px 0 inset;
+    }
+
+    & a:hover {
+        color: theme-color('primary');
+        text-decoration: none;
+    }
+}
+
+// 
+// Post Markdown Typography
+// ======================================================
+.kg-card-markdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-full-content {
+    p, ul, ol, dl, pre, h1, h2, h3, h4, h5, h6 {
+        min-width: 100%;
+    }
+
+    .kg-card-markdown > h1, h2, h3, h4, h5, h6 {
+        margin: $spacer*2 0 $spacer 0;
+    }
+
+    .kg-card-markdown > p:first-child {
+        font-size: 24px;
+        @include media-breakpoint-down(sm) {
+            font-size: $font-size-base;
+        }
+    }
+    
+    blockquote {
+        border-left: 4px solid theme-color("primary"); 
+        padding-left: $spacer;
+        p {
+            margin: 0;
+        }
+    }
+
+    ul, ol {
+        padding-left: 20px;
+    }
+
+    img, video, .fluid-width-video-wrapper{
+        display: block;
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+        margin: auto;
+        @include media-breakpoint-down(sm) {
+            width: 100vw;
+        }
+    }
+
+    iframe {
+        margin: 0 auto $spacer;
+    }
+
+    pre {
+        color: $white;
+        border-radius: $spacer/2;
+        background-color: $gray-900;
+        padding: $spacer;
+        overflow: auto;
+        width: 100%;
+    }
+
+    hr {
+        display: block;
+        margin: $spacer * 3 0;
+        width: 100%;
+        padding: 0;
+        height: 1px;
+        border-top: 1px solid $gray-200;
+        @include media-breakpoint-down(sm) {
+            margin: $spacer;
+        }
+    }
+}
+
+.post-full-comments,
+.footnotes {
+    min-width: 100%;
+}
+
+.footnotes {
+    p {
+        margin: 0;
+    }
+}
+
+.footnote-backref {
+    color: theme-color('primary') !important;
+    font-weight: bold;
+    text-decoration: none !important;
+    box-shadow: none !important;
+}
+
+// 
+// Post Tables
+// ======================================================
+.post-full-content table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: $spacer;
+    background-color: $table-bg; // Reset for nesting within parents with `background-color`.
+    font-size: $font-size-base;
+    margin-bottom: $spacer;
+
+    th,
+    td {
+      padding: $table-cell-padding;
+      vertical-align: top;
+      border-top: $table-border-width solid $table-border-color;
+    }
+
+    thead th {
+        vertical-align: bottom;
+        border-bottom: (2 * $table-border-width) solid $table-border-color;
+    }
+
+    tbody + tbody {
+        border-top: (2 * $table-border-width) solid $table-border-color;
+    }
+
+    .table {
+        background-color: $body-bg;
+    }
+    
+    // Bordered
+    border: $table-border-width solid $table-border-color;
+    th,
+    td {
+        border: $table-border-width solid $table-border-color;
+    }
+  
+    thead {
+        th,
+        td {
+            border-bottom-width: (2 * $table-border-width);
+        }
+    }
+}
+
+// 
+// Post Full Footer
+// ======================================================
+.post-full-footer {
+    padding: $spacer * 6 0;
+    @include media-breakpoint-down(sm) {
+        padding: $spacer 0;
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+    }
+}
+
+.author-card {
+    & .author-profile-image {
+        margin-right: $spacer;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+    }
+
+    & .author-card-name {
+        margin: 0 0 $spacer / 4 0;
+        padding: 0;
+        font-size: $font-size-base;
+        @include media-breakpoint-down(sm) {
+            font-size: $font-size-base;
+        }
+
+        & a {
+            color: inherit;
+            font-weight: bold;
+        }
+    }
+
+    & .author-card-content {
+        & p {
+            margin: 0;
+            color: gray;
+        }
+    }
+}
+
+// 
+// Pagination
+// ======================================================
+.post-footer {
+    width: 100%;
+}
+
+.pagination {
+    padding: $spacer*4 0;
+    margin: $spacer*2 0 $spacer;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0,0,0,.2);
+    background-color: $gray-300;
+
+    @include media-breakpoint-down(sm) {
+        padding: $spacer * 2 0;
+    }
+
+    & .link-box {
+        position: relative;
+        color: $gray-700;
+
+        & .next-subtitle,
+        & .previous-subtitle {
+            font-weight: bold;
+            font-size: 1rem;
+            display: block;
+            width: 100%;
+        }
+
+        & .next-title,
+        & .previous-title {
+            font-size: 1rem;
+            width: 60%;
+            display: inline-block;
+            @include media-breakpoint-down(sm) {
+                width: 100%;
+            }
+        }
+
+        & .next-subtitle {
+            padding: 0 $spacer / 2 $spacer / 2 0;
+        }
+
+        & .previous-subtitle {
+            padding: 0 0 $spacer / 2 $spacer / 2;
+        }
+
+        & .next-title {
+            padding-right: $spacer / 2;
+        }
+
+        & .previous-title {
+            padding-left: $spacer / 2;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

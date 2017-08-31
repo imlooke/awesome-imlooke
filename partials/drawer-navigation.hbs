@@ -1,0 +1,7 @@
+<nav class="mdl-navigation">
+    {{#foreach @blog.navigation}}
+        <a class="mdl-navigation__link" href="{{url absolute="true"}}">
+            {{label}}
+        </a>
+    {{/foreach}}
+</nav>

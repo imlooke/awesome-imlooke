@@ -1,0 +1,70 @@
+// Author Page
+// =====================================================
+.jumbotron {
+    .author-meta {
+        &.has-image {
+            color: $white;
+            .bull {
+                color: $gray-200;
+            }
+            .social-link {
+                svg {
+                    fill: $gray-200;
+                    transition: all .15s ease-in-out;
+                }
+                &:hover {
+                    svg {
+                        fill: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.author-profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    box-shadow: 0 0 0 6px hsla(0,0%,100%,.1);
+}
+
+.author-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: inherit;
+
+    .author-location,
+    .author-stats,
+    .social-link {
+        display: inline-block;
+    }
+
+    .author-location,
+    .author-stats {
+        margin-right: $spacer;
+    }
+
+    .bull {
+        color: inherit;
+        margin-left: $spacer;
+    }
+
+    .social-link {
+        display: flex;
+        align-items: center;
+        margin-right: $spacer;
+        svg {
+            width: 1rem;
+            height: 1rem;
+            fill: $gray-600;
+            transition: all .15s ease-in-out;
+        }
+        &:hover {
+            svg {
+                fill: $gray-700;
+            }
+        }
+    }
+}

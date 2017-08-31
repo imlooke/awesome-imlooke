@@ -1,0 +1,174 @@
+html {
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body, html {
+    height: 100%;
+}
+
+// Layout
+// =====================================================
+.layout {
+    flex: 1;
+}
+
+.pjax-container {
+    flex: 1;
+}
+
+// Layout Content
+// =====================================================
+.layout-content {
+    flex: 1;
+    padding-top: 2rem;
+    background-color: $gray-100;
+
+    @include media-breakpoint-down(sm) {
+        padding-top: 1rem;
+    }
+}
+
+// Layout Header
+// =====================================================
+#navbarHiddenContent {
+    .nav-item {
+        .nav-link{
+            &.active::after {
+                display: none;
+            }
+        }
+        width: 100%;
+    }
+    .nav-title {
+        display: none;
+    }
+}
+
+// Layout Footer
+// =====================================================
+.layout-footer {
+    color: $gray-600;
+    background-color: $gray-900;
+    font-size: $font-size-sm;
+    padding: 2.5rem 0;
+}
+
+.layout-footer-follow-list,
+.layout-footer-bottom-list {
+    margin: 0.5rem 0 0 0;
+    padding: 0;
+    display: block;
+    list-style: none;list-style-type: none;
+}
+// list1
+.layout-footer-follow-list {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+
+    .list-item {
+        display: inline-block;
+
+        &:first-child {
+            font-size: 20px;
+            margin-right: 1rem;
+        }
+
+        .icon-link {
+            display: flex;
+            margin-right: 1rem;
+            transition: all .15s ease-in-out;
+            svg {
+                fill: $gray-600;
+                width: 20px;
+                height: 20px;
+                transition: all .15s ease-in-out;
+            }
+            &:hover {
+                svg {
+                    fill: $gray-700;
+                }
+            }
+        }
+    }
+}
+// list2
+.layout-footer-bottom-list {
+    margin: 0.5rem 0;
+
+    .list-item {
+        display: inline-block;
+
+        span {
+            margin-right: 0.5rem;
+            letter-spacing: .2px;
+        }
+    }
+}
+
+.footer-link {
+    color: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:hover {
+        color: $gray-700;
+    }
+}
+
+// Back To Top & Share btn
+// =====================================================
+.back-share-content {
+    position: fixed;
+    right: $spacer;
+    bottom: $spacer;
+    display: flex;
+    flex-direction: column;
+
+    &.no-share {
+        .share-btn {
+            display: none;
+        }
+        .back-to-top-btn {
+            border-radius: 0.2rem;
+        }
+    }
+
+    .back-to-top-btn,
+    .share-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: $spacer*3;
+        height: $spacer*3;
+        margin: 0;
+        padding: $spacer/2;
+        border: none;
+        outline: none;
+        z-index: 9000;
+        @include media-breakpoint-down(sm) {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .back-to-top-btn {
+        &.hide {
+            display: none;
+        }
+    }
+
+    .share-btn {
+        svg {
+            fill: $white;
+        }
+    }
+}
+

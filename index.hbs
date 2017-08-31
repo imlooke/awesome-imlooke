@@ -1,0 +1,77 @@
+{{!< default}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+
+{{!-- Carousel or Cover --}}
+{{#get "posts" limit="5" include="tags,author" filter="feature_image:-null+featured:true" as |feature_posts|}}
+    {{#if feature_posts}}
+    {{!-- Carousel --}}
+    <div id="carouselFeaturePosts" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            {{#foreach feature_posts}}
+                <li data-target="#carouselFeaturePosts" data-slide-to="{{@index}}" {{#unless @index}}class="active"{{/unless}}></li>
+            {{/foreach}}
+        </ol>
+        <div class="carousel-inner">
+            {{#foreach feature_posts}}
+                <div class="carousel-item carousel-content{{#unless @index}} active{{/unless}}" style="background-image: url({{img_url feature_image absolute="true"}})">
+                    <div class="carousel-content-wrap">
+                        <div class="carousel-caption">
+                            <h1 class="font-weight-bold">{{title}}</h1>
+                            {{!-- <p>{{excerpt words="8"}}</p> --}}
+                            <p class="mb-3">
+                                {{author}} / 
+                                {{#primary_tag}}
+                                    <a href="{{url}}">{{name}}</a>
+                                {{/primary_tag}} 
+                                - <time class="published-at" datetime="{{date published_at format="YYYY-MM-DDTHH:mm:ss.SS\Z"}}"></time>
+                            </p>
+                            <p class="lead">
+                                <a class="btn btn-primary" href="{{url}}" role="button">阅读全文</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {{/foreach}}
+        </div>
+        <a class="carousel-control-prev" href="#carouselFeaturePosts" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselFeaturePosts" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    {{else}}
+    {{!-- cover --}}
+    <div class="jumbotron jumbotron-fluid bg-light{{#if @blog.cover_image}} has-image" style="background-image: url({{@blog.cover_image}})"{{/if}}>
+        <div class="container text-center mt-5 mb-5">
+            <div class="row">
+                <div class="col-12 mt-4 mb-4">
+                    <h1>{{@blog.title}}</h1>
+                    <p class="lead">{{@blog.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+{{/get}}
+
+{{!-- Content  --}}
+<main class="layout-content" role="main">
+    <div class="container">
+        <div class="row" id="postFeed">
+            {{#foreach posts}}
+                {{> "post-card"}}
+            {{/foreach}}
+        </div>
+
+        {{!-- ajax加载动画 --}}
+        {{> "post-loader"}}
+    </div>
+</main>
+
+{{!-- Js  --}}
+{{#contentFor "scripts"}}
+
+{{/contentFor}}

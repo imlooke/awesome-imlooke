@@ -1,0 +1,41 @@
+{{#author}}
+<div class="jumbotron jumbotron-fluid {{#if cover_image}}has-image" style="background-image: url({{cover_image }}){{else}}no-cover{{/if}}">
+    <div class="wrap"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center pt-5 pb-5">
+                {{#if profile_image}}
+                    <img class="author-profile-image mb-3" src="{{profile_image}}" alt="{{name}}" />
+                {{/if}}
+
+                <h1 class="font-weight-bold">{{name}}</h1>
+
+                {{#if bio}}
+                    <p class="lead mb-2">{{bio}}</p>
+                {{/if}}
+
+                <div class="author-meta mb-3{{#if cover_image}} has-image{{/if}}">
+                    {{#if location}}
+                        <div class="author-location">{{location}}<span class="bull">&bull;</span></div>
+                    {{/if}}
+                    {{^is "page"}}
+                        <div class="author-stats">
+                            {{plural ../pagination.total empty='暂无文章' singular='% 篇文章' plural='% 篇文章'}}<span class="bull">&bull;</span>
+                        </div>
+                    {{/is}}
+                    {{#if website}}
+                        <a class="social-link" href="{{website}}" target="_blank">{{> "icons/earth"}}</a>
+                    {{/if}}
+                    {{#if twitter}}
+                        <a class="social-link" href="{{twitter_url}}" target="_blank">{{> "icons/twitter"}}</a>
+                    {{/if}}
+                    {{#if facebook}}
+                        <a class="social-link" href="{{facebook_url}}" target="_blank">{{> "icons/facebook"}}</a>
+                    {{/if}}
+                    <a class="social-link" href="http://cloud.feedly.com/#subscription/feed/{{url absolute="true"}}/rss/" target="_blank">{{> "icons/rss"}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/author}}

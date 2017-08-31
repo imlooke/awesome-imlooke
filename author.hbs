@@ -1,0 +1,18 @@
+{{!< default}}
+
+{{!-- Author  --}}
+{{> "author"}}
+
+{{!-- Content  --}}
+<main class="layout-content" role="main">
+    <div class="container">
+        <div class="row">
+            {{#foreach posts}}
+                {{> "post-card"}}
+            {{/foreach}}
+        </div>
+
+        {{!-- ajax加载动画 --}}
+        {{> "post-loader"}}
+    </div>
+</main>

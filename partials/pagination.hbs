@@ -1,0 +1,19 @@
+<nav class="pagination" role="navigation">
+    {{#if prev}}
+        <a id="navigate_before" class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent" href="{{page_url prev}}">
+            <i class="material-icons">navigate_before</i>
+        </a>
+        {{!-- <div class="mdl-tooltip mdl-tooltip--bottom" data-mdl-for="navigate_before">
+            上一页
+        </div> --}}
+    {{/if}}
+    {{page}} / {{pages}}
+    {{#if next}}
+        <a id="navigate_next" class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent" href="{{page_url next}}">
+            <i class="material-icons">navigate_next</i>
+        </a>
+        {{!-- <div class="mdl-tooltip mdl-tooltip--bottom" data-mdl-for="navigate_next">
+            下一页
+        </div> --}}
+    {{/if}}
+</nav>

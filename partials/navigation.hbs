@@ -1,0 +1,15 @@
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link nav-title disabled" href="#">导航</a>
+    </li>
+    {{#foreach navigation}}
+        <li class="nav-item">
+            <a class="nav-link{{#if current}} active{{/if}}" href="{{url absolute="true"}}">{{label}}</a>
+        </li>
+    {{/foreach}}
+    <li class="nav-item ml-auto">
+        <a class="nav-link nav-link-icon" href="#">
+            <i class="material-icons">rss_feed</i>
+        </a>
+    </li>
+</ul>
