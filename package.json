@@ -1,6 +1,6 @@
 {
   "name": "awesome-imlooke",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "A neat and beautiful Ghost theme by imlooke. Base on Bootstrap-4",
   "engines": {
     "ghost": ">=1.0.0"

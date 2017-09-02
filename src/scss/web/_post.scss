@@ -114,7 +114,7 @@
 }
 
 .post-full-content {
-    p, ul, ol, dl, pre, h1, h2, h3, h4, h5, h6 {
+    p, ul, ol, dl, pre, h1, h2, h3, h4, h5, h6, blockquote {
         min-width: 100%;
     }
 
@@ -130,8 +130,8 @@
     }
     
     blockquote {
-        border-left: 4px solid theme-color("primary"); 
-        padding-left: $spacer;
+        border-left: 4px solid $gray-400; 
+        padding: $spacer/2 $spacer $spacer/2;
         p {
             margin: 0;
         }

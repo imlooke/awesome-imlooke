@@ -26,17 +26,6 @@
                 {{content}}
             </section>
 
-            {{!-- Email Subscribe --}}
-            {{!-- {{#if @labs.subscribers}}
-            <section class="subscribe-content">
-                <div class="subscribe-form bg-light text-center border">
-                    <h1>订阅 {{@blog.title}}</h1>
-                    <p>如果有新的文章，将通知到这个邮箱。</p>
-                    {{subscribe_form placeholder="email@example.com" input_class="form-control form-control-lg col-md-5" button_class="btn btn-primary btn-lg col-md-5"}}
-                </div>
-            </section>
-            {{/if}} --}}
-
             {{!-- Author profile --}}
             <footer class="post-full-footer d-flex justify-content-between align-items-center">
                 {{#author}}
@@ -61,22 +50,7 @@
     </div>
 </main>
 
-{{!-- next and previous --}}
-<footer class="container pagination">
-    <div class="row">
-        {{!-- <div class="card-col {{post_class}}">
-            <div class="card">
-            </div>
-        </div> --}}
-        {{#next_post}}
-            {{> "post-card"}}
-        {{/next_post}}
-        
-        {{#prev_post}}
-            {{> "post-card"}}
-        {{/prev_post}}
-    </div>
-</footer>
+{{> "pagination"}}
 
 {{/post}}
 

@@ -8,6 +8,7 @@
 {{!-- Content  --}}
 <main class="layout-content pt-0" role="main">
     {{content}}
+
     {{!-- <section class="container">
         <div class="about-me-detail-content row">
             <div class="about-me-detail col-md-4">
@@ -40,41 +41,6 @@
                             <a class="wrap" href="#" data-toggle="modal" data-target="#showcaseModal" data-title="测试一下" data-src="{{asset "images/showcase/1.jpg"}}"></a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-4">
-                        <div class="show-card" style="background-image: url({{asset "images/showcase/2.jpg"}})">
-                            <a class="wrap" href="#" data-toggle="modal" data-target="#showcaseModal" data-title="测试一下" data-src="{{asset "images/showcase/2.jpg"}}"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4">
-                        <div class="show-card" style="background-image: url({{asset "images/showcase/3.jpg"}})">
-                            <a class="wrap" href="#" data-toggle="modal" data-target="#showcaseModal" data-title="测试一下" data-src="{{asset "images/showcase/3.jpg"}}"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4">
-                        <div class="show-card" style="background-image: url({{asset "images/showcase/4.jpg"}})">
-                            <a class="wrap" href="#" data-toggle="modal" data-target="#showcaseModal" data-title="测试一下" data-src="{{asset "images/showcase/4.jpg"}}"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4">
-                        <div class="show-card" style="background-image: url({{asset "images/showcase/5.jpg"}})">
-                            <a class="wrap" href="#" data-toggle="modal" data-target="#showcaseModal" data-title="测试一下" data-src="{{asset "images/showcase/5.jpg"}}"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4">
-                        <div class="show-card" style="background-image: url({{asset "images/showcase/6.jpg"}})">
-                            <a class="wrap" href="#" data-toggle="modal" data-target="#showcaseModal" data-title="测试一下" data-src="{{asset "images/showcase/6.jpg"}}"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4">
-                        <div class="show-card" style="background-image: url({{asset "images/showcase/7.jpg"}})">
-                            <a class="wrap" href="#" data-toggle="modal" data-target="#showcaseModal" data-title="测试一下" data-src="{{asset "images/showcase/7.jpg"}}"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4">
-                        <div class="show-card" style="background-image: url({{asset "images/showcase/8.jpg"}})">
-                            <a class="wrap" href="#" data-toggle="modal" data-target="#showcaseModal" data-title="测试一下" data-src="{{asset "images/showcase/8.jpg"}}"></a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -104,8 +70,6 @@
 
 {{/post}}
 
-
-{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
 <script>
 $(function() {
