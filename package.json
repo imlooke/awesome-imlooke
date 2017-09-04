@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/imlooke/awesome-imlooke#readme",
   "config": {
-    "posts_per_page": 9
+    "posts_per_page": 18
   },
   "dependencies": {
     "loaders.css": "^0.1.2",

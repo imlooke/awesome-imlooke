@@ -115,11 +115,25 @@
 
 .post-full-content {
     p, ul, ol, dl, pre, h1, h2, h3, h4, h5, h6, blockquote {
+        width: 100%;
         min-width: 100%;
+        margin-bottom: $spacer*1.5;
     }
 
     .kg-card-markdown > h1, h2, h3, h4, h5, h6 {
-        margin: $spacer*2 0 $spacer 0;
+        font-weight: 700;
+        margin: $spacer*1.5 0;
+    }
+
+    .kg-card-markdown > h1 { font-size: 1.6rem; }
+    .kg-card-markdown > h2 { font-size: 1.5rem; }
+    .kg-card-markdown > h3 { font-size: 1.3rem; }
+    .kg-card-markdown > h4 { font-size: 1.2rem; }
+    .kg-card-markdown > h5 { font-size: 1.1rem; }
+    .kg-card-markdown > h6 { font-size: 1rem; }
+
+    .kg-card-markdown > h2:first-child {
+        margin-top: 0;
     }
 
     .kg-card-markdown > p:first-child {
